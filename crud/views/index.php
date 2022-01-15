@@ -92,15 +92,7 @@
                         editable: false,
                         footerFormatter: false,
                     },
-                    // {
-                    //     field: 'member_id',
-                    //     title: 'Member Id',
-                    //     align: 'left',
-                    //     valign: 'middle',
-                    //     sortable: true,
-                    //     editable: false,
-                    //     footerFormatter: false,
-                    // },
+                    
                     {
                         field: 'email',
                         title: 'Email',
