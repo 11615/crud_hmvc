@@ -7,7 +7,7 @@
         {
             parent::__construct();
 
-        //    $this->load->model('Crud_model');
+      
            $this->load->model('crud_model', 'crud');
         }
         
@@ -37,10 +37,10 @@
 
         function ajax_list()
         {
-            // $condition          = ['c.status !' => '-1', 'c.user_id' => $this->session->userdata('user_id')];
+           
             $list               = $this->crud->all();
             $tabledata          = [];
-            // $no                 = isset($_GET['offset']) ? $_GET['offset'] : 0;
+           
             foreach ($list as $key => $value) {
                 if(isset($value->created_on) && !empty($value->created_on) && $value->created_on !== '0000-00-00 00:00:00')
                 {
@@ -137,7 +137,7 @@
             $data['post_data']['status']    = 1;
 
 
-        //    $this->form_validation_rules($data);
+      
           
 
             if($this->input->post())
@@ -239,34 +239,7 @@
                 $save['user_id']                        = htmlentities($post_data['user_id']);
 
                 $response                           = $this->crud->save($id, $save);
-                // if(empty($id))
-                // {
-                //     if(isset($post_data['password']) && !empty($post_data['password']))
-                //     {
-                //         $password                       = $post_data['password'];
-                //     }
-                //     else
-                //     {
-                //         $password                       = $this->common_lib->generatePassword();
-                //     }
-
-                //     $save['user_id']                    = $this->session->userdata('user_id');
-                //     $save['password']                   = password_hash($password, PASSWORD_DEFAULT);
-                //     $save['created_on']                 = date('Y-m-d H:i:s');
-                //     $save['created_by']                 = $this->session->userdata('user_id');
-
-                //     $response                           = $this->customers->save($id, $save);
-                //     if($response['error'] == 0 && empty($id))
-                //     {
-                //         $save['password']               = $password;
-                //     }
-                // }
-                // else
-                // {
-                //     $save['modified_on']                = date('Y-m-d H:i:s');
-                //     $save['modified_by']                = $this->session->userdata('user_id');
-                //     $response                           = $this->customers->save($id, $save);
-                // }
+               
             }
             return $response;
         }
